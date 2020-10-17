@@ -25,10 +25,12 @@
 
 <script>
 import { ref, inject } from 'vue';
+import { useRouter } from 'vue-router'; // add hooks / composables
 
 export default {
   setup() {
     const addProduct = inject('addProduct');
+    const router = useRouter()
 
     const enteredTitle = ref('');
     const enteredPrice = ref(null);
@@ -40,6 +42,8 @@ export default {
         description: enteredDescription,
         price: enteredPrice,
       });
+
+      router.push('/products'); // old way (Options API)
     }
 
     return {

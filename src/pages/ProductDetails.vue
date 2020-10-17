@@ -9,14 +9,21 @@
 
 <script>
 import { inject, computed } from 'vue'
+import { useRoute } from 'vue-router' // add hooks / composables
 
 export default {
   props:['pid'],
   setup(props) {
 
+    console.log(props)
     const products = inject('products')
+
+    const route = useRoute()
+    console.log(route)
+
     const selectedProduct = computed(() =>
-      products.value.find(product => product.id === props.pid)
+      // products.value.find(product => product.id === props.pid) // props approach
+      products.value.find(product => product.id === route.params.pid) // (route) composables approach
     )
     const title = computed(() => selectedProduct.value.title)
     const price = computed(() => selectedProduct.value.price)

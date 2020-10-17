@@ -18,7 +18,31 @@ this.$route
 NEW WAY (Composition API)
 
 a few approaches:
-1) pass params as a prop (on the routes) and inject products into project details (props is param of setup())
+1) pass params as a prop (on the routes) and inject products into project details (using props param of setup())
+
+2) use route without this.$route:
+  - add hooks / composables
+
+```
+import { useRoute } from 'vue-router'
+...
+setup() {
+  ...
+  const route = useRoute()
+  products.value.find(product => product.id === route.params.pid)
+```
+
+```
+import { useRouter } from 'vue-router'; // add hooks / composables
+...
+setup() {
+  ...
+  const router = useRouter()
+  router.push('/products');
+}
+```
+
+  composables are special functions built for Composition API (to be used in setup())
 
 ## Installation
 
