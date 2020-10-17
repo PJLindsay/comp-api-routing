@@ -7,17 +7,20 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from 'vue'
 
 export default {
-  setup() {
-    const title = ref('');
-    const price = ref(null);
-    const description = ref('');
+  setup(props) {
 
-    return { title, price, description };
+    const products = inject('products')
+    const selectedProduct = products.find(product => product.id === props.id)
+    const title = selectedProduct.title
+    const price = selectedProduct.price
+    const description = selectedProduct.description
+
+    return { title, price, description }
   },
-};
+}
 </script>
 
 

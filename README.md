@@ -5,9 +5,20 @@ Udemy Vue3 course Section 19 #297
 example of how to refactor from Options API (Vue2) to Composition API (Vue3)
 with respect to routing / params
 
-## Concepts
+## Problems
 
+REQUIREMENTS:
+Add new product - want to be redirected to all products
+When you click - view details, want to see details
 
+OLD WAY (Options API)
+this.$router
+this.$route
+
+NEW WAY (Composition API)
+
+a few approaches:
+1) pass params as a prop (on the routes) and inject products into project details (props is param of setup())
 
 ## Installation
 

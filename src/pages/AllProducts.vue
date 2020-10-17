@@ -13,15 +13,15 @@
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject } from 'vue'
 
 export default {
   setup() {
-    const loadedProducts = inject('products');
+    const loadedProducts = inject('products')
 
-    return { products: loadedProducts };
+    return { products: loadedProducts }
   },
-};
+}
 </script>
 
 <style scoped>
