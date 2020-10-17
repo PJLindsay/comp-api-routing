@@ -3,7 +3,7 @@
 Udemy Vue3 course Section 19 #297
 
 example of how to refactor from Options API (Vue2) to Composition API (Vue3)
-with respect to routing / params
+with respect to routing / params and Vuex
 
 ## Problems
 
@@ -22,6 +22,8 @@ a few approaches:
 
 2) use route without this.$route:
   - add hooks / composables
+
+### vue-router hooks/composables examples:
 
 ```
 import { useRoute } from 'vue-router'
@@ -43,6 +45,23 @@ setup() {
 ```
 
   composables are special functions built for Composition API (to be used in setup())
+
+### vuex hooks/composables examples:
+
+```
+import { useStore } from 'vuex'; // add hooks / composables
+...
+setup() {
+...
+  const store = useStore()
+  store.dispatch('increment') // call Action
+
+  return store.getters.counter; // call Getter
+
+...
+}
+```
+
 
 ## Installation
 
